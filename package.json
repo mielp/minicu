@@ -8,7 +8,7 @@
   "module": "dist/minicu.module.js",
   "unpkg": "dist/minicu.umd.js",
   "types": "dist/minicu.d.ts",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "audit:npm": "npm outdated && npm audit && npm find-dupes",
     "build": "microbundle",
