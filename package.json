@@ -1,0 +1,51 @@
+{
+  "name": "minicu",
+  "version": "0.1.0",
+  "description": "Another tiny translation library for JavaScript and TypeScript.",
+  "source": "src/minicu.ts",
+  "main": "dist/minicu.js",
+  "exports": "dist/minicu.modern.js",
+  "module": "dist/minicu.module.js",
+  "unpkg": "dist/minicu.umd.js",
+  "types": "dist/minicu.d.ts",
+  "scripts": {
+    "audit:npm": "npm outdated && npm audit && npm find-dupes",
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "format": "prettier --ignore-path .gitignore --write .",
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "lint:prettier": "prettier --ignore-path .gitignore --check .",
+    "lint:eslint": "eslint --ignore-path .gitignore .",
+    "test": "c8 --check-coverage ava -v",
+    "test:driven": "ava --watch",
+    "test:report": "c8 report --reporter=lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mielp/minicu.git"
+  },
+  "keywords": [
+    "i18n",
+    "icu"
+  ],
+  "author": "Miel Pandarou <miel+git@lly.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mielp/minicu/issues"
+  },
+  "homepage": "https://github.com/mielp/minicu#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "ava": "^3.15.0",
+    "c8": "^7.7.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-ava": "^12.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-unicorn": "^31.0.0",
+    "microbundle": "^0.13.0",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1"
+  }
+}
