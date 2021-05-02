@@ -1,3 +1,5 @@
+import { DeepDictionary, flatten } from './utils';
+
 /**
  * The place where dictionaries are stored.
  *
@@ -8,13 +10,16 @@ const store: Record<string, Record<string, string>> = Object.create(null);
 
 /**
  * Register a dictionary of messages for the given language.
+ * If the dictionary is nested, it will be flattened, so that
+ * `{ "a": { "b": "c" } }` becomes `{ "a.b": "c" }`.
  * @param language A {@link https://www.ietf.org/rfc/bcp/bcp47.txt BCP47}-compliant language code
+ * @param dictionary The dictionary of messages to register
  */
 export const register = (
   language: string,
-  dictionary: Record<string, string>
+  dictionary: DeepDictionary
 ): void => {
-  store[language] = dictionary;
+  store[language] = flatten(dictionary);
 };
 
 /**
